@@ -1,0 +1,4 @@
+[INFO][json.go:19]2020/04/20 10:53:14 [Key: 'ReqUpdateArticle.Body.Title' Error:Field validation for 'Title' failed on the 'min' tag]
+[INFO][json.go:19]2020/04/20 13:06:30 [Key: 'ReqDelArticle.Body.ID' Error:Field validation for 'ID' failed on the 'required' tag]
+[INFO][json.go:19]2020/04/20 13:06:58 [Key: 'ReqDelArticle.Body.ID' Error:Field validation for 'ID' failed on the 'required' tag]
+[INFO][json.go:19]2020/04/20 13:08:26 [Key: 'ReqDelArticle.Body.ID' Error:Field validation for 'ID' failed on the 'required' tag]

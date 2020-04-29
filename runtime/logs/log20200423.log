@@ -1,0 +1,8 @@
+[INFO][json.go:19]2020/04/23 15:02:14 [Key: 'ReqAddArticle.Body.Desc' Error:Field validation for 'Desc' failed on the 'required' tag]
+[INFO][json.go:19]2020/04/23 15:03:04 [Key: 'ReqAddArticle.Body.Desc' Error:Field validation for 'Desc' failed on the 'required' tag]
+[INFO][article_service.go:109]2020/04/23 15:03:45 [redigo: unexpected type for Bool, got type string]
+[INFO][article_service.go:109]2020/04/23 15:09:44 [redigo: unexpected type for Bool, got type string]
+[INFO][article_service.go:109]2020/04/23 17:17:21 [redigo: unexpected type for Bool, got type string]
+[INFO][json.go:19]2020/04/23 18:01:22 [Key: 'ReqAddArticle.Body.Content' Error:Field validation for 'Content' failed on the 'min' tag]
+[INFO][json.go:19]2020/04/23 18:01:49 [Key: 'ReqAddArticle.Body.Content' Error:Field validation for 'Content' failed on the 'min' tag]
+[INFO][article_service.go:109]2020/04/23 18:02:06 [redigo: unexpected type for Bool, got type string]

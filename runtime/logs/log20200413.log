@@ -1,0 +1,8 @@
+[INFO][json.go:19]2020/04/13 20:44:14 [Key: 'ReqUpdateTag.Body.ID' Error:Field validation for 'ID' failed on the 'min' tag]
+[INFO][json.go:19]2020/04/13 20:46:45 [Key: 'ReqUpdateTag.Body.ID' Error:Field validation for 'ID' failed on the 'min' tag]
+[INFO][json.go:19]2020/04/13 20:48:09 [Key: 'ReqUpdateTag.Body.Name' Error:Field validation for 'Name' failed on the 'required' tag
+Key: 'ReqUpdateTag.Body.ID' Error:Field validation for 'ID' failed on the 'gte' tag]
+[INFO][json.go:19]2020/04/13 20:49:23 [Key: 'ReqUpdateTag.Body.Name' Error:Field validation for 'Name' failed on the 'required' tag
+Key: 'ReqUpdateTag.Body.ID' Error:Field validation for 'ID' failed on the 'gte' tag]
+[INFO][json.go:19]2020/04/13 20:51:33 [Key: 'ReqUpdateTag.Body.Name' Error:Field validation for 'Name' failed on the 'required' tag
+Key: 'ReqUpdateTag.Body.ID' Error:Field validation for 'ID' failed on the 'gte' tag]

@@ -1,0 +1,31 @@
+definitions:
+  models.Response:
+    properties:
+      data:
+        type: object
+      status:
+        $ref: '#/definitions/models.Status'
+        type: object
+    type: object
+  models.Status:
+    properties:
+      code:
+        type: integer
+      msg:
+        type: string
+    type: object
+info:
+  contact: {}
+  license: {}
+paths:
+  /api/v1/ping:
+    post:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Response'
+      summary: 检查
+swagger: "2.0"

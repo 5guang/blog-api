@@ -1,0 +1,2 @@
+[INFO][json.go:19]2020/04/17 23:56:15 [Key: 'ReqAddArticle.Body.Content' Error:Field validation for 'Content' failed on the 'min' tag]
+[INFO][json.go:19]2020/04/17 23:57:04 [Key: 'ReqAddArticle.Body.Content' Error:Field validation for 'Content' failed on the 'min' tag]
