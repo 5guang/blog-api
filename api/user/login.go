@@ -2,6 +2,7 @@ package user
 
 import (
 	"blog/models/request"
+	"blog/models/response"
 	"blog/pkg/app"
 	"blog/pkg/e"
 	"blog/service/auth_service"
@@ -13,6 +14,7 @@ func Login(c *gin.Context)  {
 	var (
 		appG = app.Gin{C:c}
 		reqLogin request.ReqLogin
+		resLoginData response.ResLoginData
 	)
 	errCode := app.BindAndValid(c, &reqLogin)
 	if errCode != e.SUCCESS {
@@ -23,8 +25,9 @@ func Login(c *gin.Context)  {
 	userService := user_service.User{
 		Username: reqLogin.Body.Username,
 		Password: reqLogin.Body.Password,
+		AdminPassword: reqLogin.Body.AdminPassword,
 	}
-	errCode = userService.Login()
+	errCode, resLoginData = userService.Login()
 
 	token, code := auth_service.GetAuthInfo(reqLogin.Body.Username, reqLogin.Body.Password)
 	if code != e.SUCCESS {
@@ -33,5 +36,5 @@ func Login(c *gin.Context)  {
 	}
 	c.Request.Header.Set("token", token)
 
-	appG.Response( errCode, nil)
+	appG.Response( errCode, resLoginData)
 }

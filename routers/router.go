@@ -25,7 +25,7 @@ func NewRouter() *gin.Engine {
 	// 路由
 	//apiUser := r.Group("/user/")
 	apiV1 := r.Group("/api/v1")
-	user := r.Group("/user")
+	user := r.Group("api/user")
 
 	{
 		//apiUser.POST("/login", api.Login)

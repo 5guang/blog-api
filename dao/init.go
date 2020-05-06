@@ -23,10 +23,11 @@ func Init() {
 			setting.DataBaseSetting.Host,
 			setting.DataBaseSetting.Name))
 	)
+	fmt.Println("-----------------------",MysqlDsn)
 	// 链接mysql数据库
 	DB, err = gorm.Open(setting.DataBaseSetting.Type, MysqlDsn)
 	if err != nil {
-		log.Println(err)
+		log.Println("----",err)
 	}
 	TX = DB.Begin()
 	// 设置表名前缀
@@ -48,8 +49,8 @@ func Init() {
 	//超时
 	DB.DB().SetConnMaxLifetime(time.Second * 30)
 	migration()
-
 }
+
 
 func CloseDB() {
 	defer DB.Close()

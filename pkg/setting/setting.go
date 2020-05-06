@@ -18,6 +18,7 @@ type App struct {
 	Delimiter          string
 	StretchingPassword string
 	SaltLocalSecret string
+	AdminPassword string
 }
 
 type Server struct {

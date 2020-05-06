@@ -2,7 +2,9 @@ package user_service
 
 import (
 	"blog/dao"
+	"blog/models/response"
 	"blog/pkg/e"
+	"blog/pkg/logging"
 	"blog/pkg/setting"
 	"blog/pkg/util"
 )
@@ -10,6 +12,7 @@ import (
 type User struct {
 	Username string
 	Password string
+	AdminPassword string
 	NickName string
 	Email string
 }
@@ -40,25 +43,57 @@ func (u *User) Register() int {
 	return e.SUCCESS
 }
 
-func (u *User) Login() int {
+func (u *User) Login() (int, response.ResLoginData) {
 
 	var (
 		bol      bool
+		adminBol bool
+		// 默认是超级管理员
+		isAdmin = 0
 		err      error
 		salt string
+		adminPassword string
+		resLogin = response.ResLoginData{}
 	)
 	bol = dao.IsExistByUsername(u.Username)
 	if bol == false {
-		return e.ERROR_USER_NOT_EXIST
+		return e.ERROR_USER_NOT_EXIST, resLogin
 	}
 	salt = dao.GetSalt()
 	hash := dao.GetHashPassword()
 	bol, err = util.PasswordVerify(*hash, u.Password, salt)
 	if err != nil {
-		return e.ERROR
+		return e.ERROR, resLogin
 	}
 	if bol == false {
-		return e.ERROR_USER_WRONG_PASSWORD
+		return e.ERROR_USER_WRONG_PASSWORD,resLogin
 	}
-	return e.SUCCESS
+	if u.AdminPassword != "" {
+		// 校验超级管理员权限
+		salt, err = util.Salt(setting.AppSetting.SaltLocalSecret)
+		if err != nil {
+			logging.Warn(err)
+			return e.ERROR, resLogin
+		}
+		adminPassword, err = util.PasswordHash(setting.AppSetting.AdminPassword, salt)
+		if err != nil {
+			logging.Warn(err)
+			return e.ERROR, resLogin
+		}
+		adminBol, err = util.PasswordVerify(adminPassword, u.AdminPassword, salt)
+		if err != nil {
+			logging.Warn(err)
+			return e.ERROR, resLogin
+		}
+		if adminBol == false {
+			return e.ERROR_USER_WRONG_ADMIN_PASSWORD,resLogin
+		}
+		isAdmin = 1
+	}
+	nickname := dao.GetNickname()
+	resLogin = response.ResLoginData{
+		Nickname: nickname,
+		IsAdmin: isAdmin,
+	}
+	return e.SUCCESS, resLogin
 }

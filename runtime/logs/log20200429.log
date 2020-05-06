@@ -1,0 +1,2 @@
+[INFO][json.go:18]2020/04/29 15:07:43 [Key: 'ReqRegister.Body.Email' Error:Field validation for 'Email' failed on the 'email' tag]
+[INFO][json.go:18]2020/04/29 15:12:02 [Key: 'ReqRegister.Body.Email' Error:Field validation for 'Email' failed on the 'email' tag]

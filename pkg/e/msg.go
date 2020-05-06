@@ -35,6 +35,7 @@ var MsgFlags = map[int]string {
 	ERROR_USER_ALREADY_EXIST: "该用户已存在",
 	ERROR_USER_NOT_EXIST: "该用户不存在",
 	ERROR_USER_WRONG_PASSWORD: "用户名或密码错误",
+	ERROR_USER_WRONG_ADMIN_PASSWORD: "管理员密码错误",
 }
 
 func GetMsg(code int) string  {

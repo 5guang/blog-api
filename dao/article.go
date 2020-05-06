@@ -4,9 +4,9 @@ import "github.com/jinzhu/gorm"
 
 type Article struct {
 	Model
-	Title   string
+	Title   string `gorm:"type:varchar(100);DEFAULT ''"`
 	Desc    string
-	Content string
+	Content string `gorm:"type:text"`
 	Tags    []Tag `gorm:"many2many:tag_articles;association_autoupdate:false;"`
 	DataBaseModel
 }

@@ -50,6 +50,10 @@ func GetHashPassword() *string  {
 	return user.Password
 }
 
+func GetNickname() string  {
+	return user.NickName
+}
+
 func AddUser(username, password, nickname, email, salt string) error {
 	err := DB.Create(&User{
 		Username: &username,

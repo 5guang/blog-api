@@ -13,7 +13,13 @@ type ReqRegisterBody struct {
 
 type ReqLogin struct {
 	Head Head `json:"head" validate:"required"`
-	Body User `json:"body" validate:"required"`
+	Body ReqLoginBody `json:"body" validate:"required"`
+}
+
+type ReqLoginBody struct {
+	User
+	// validate校验中间用逗号隔开不能有空格 不然会会报错！！！
+	AdminPassword string `json:"adminPassword" validate:"omitempty,max=30"`
 }
 
 type User struct {
